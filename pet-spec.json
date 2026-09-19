@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 5,
+  "app": {
+    "name": "奶凶小猫",
+    "appId": "com.doubao.naixiong.pet",
+    "version": "1.0.0",
+    "language": "zh-CN"
+  },
+  "targets": {
+    "windows": {
+      "enabled": true,
+      "arch": "x64"
+    },
+    "macos": {
+      "enabled": true,
+      "arch": "current"
+    }
+  },
+  "character": {
+    "inputType": "single-image",
+    "coreAsset": "core-ip.png",
+    "displayName": "奶凶",
+    "archetype": "cat",
+    "personality": [
+      "傲娇",
+      "嘴硬心软",
+      "贪吃"
+    ],
+    "preserveTraits": [
+      "白色圆润身体",
+      "黑色粗轮廓",
+      "大圆眼黑瞳淡黄眼白",
+      "粉色脸颊晕染",
+      "弯弯小嘴弧线",
+      "呆萌中带小凶的傲娇表情"
+    ],
+    "style": "preserve",
+    "mirrorSafe": true
+  },
+  "assetPipeline": {
+    "backgroundMode": "semantic-cutout",
+    "segmentationBackend": "auto",
+    "subjectKind": "illustration",
+    "generationBackground": "transparent-grid",
+    "backgroundTolerance": 24,
+    "edgeFeather": 8,
+    "safeMargin": 32,
+    "targetOccupancy": 0.76
+  },
+  "experience": {
+    "theme": {
+      "primary": "#FFF3EE",
+      "accent": "#FF8FA3",
+      "background": "#FFF9F5",
+      "surface": "#FFFFFF",
+      "text": "#4A3434",
+      "muted": "#B49A96",
+      "cornerRadius": 20
+    },
+    "petSizing": {
+      "baseWindowPx": 220,
+      "defaultScale": 0.8
+    },
+    "interactions": [
+      {
+        "id": "pet-head",
+        "emoji": "🐾",
+        "label": "摸摸头",
+        "stateId": "pet-head",
+        "durationMs": 2400,
+        "affectionGain": 5,
+        "feedback": [
+          "哼……才、才不是稀罕呢",
+          "喵呜……就这一次哦",
+          "你的手好暖，勉强喜欢一下",
+          "再摸的话……也不是不可以"
+        ]
+      },
+      {
+        "id": "feed-fish",
+        "emoji": "🐟",
+        "label": "喂小鱼干",
+        "stateId": "feed-fish",
+        "durationMs": 3000,
+        "affectionGain": 8,
+        "feedback": [
+          "小鱼干！算你识相",
+          "咔嚓咔嚓……还有吗？",
+          "本喵批准你投喂",
+          "吃饱了才有力气傲娇"
+        ]
+      },
+      {
+        "id": "play-teaser",
+        "emoji": "🪶",
+        "label": "逗猫棒",
+        "stateId": "play-teaser",
+        "durationMs": 3000,
+        "affectionGain": 6,
+        "feedback": [
+          "看招！喵！",
+          "才、才不是想玩呢",
+          "羽毛飞了！快捡回来",
+          "本喵只是测试你的反应"
+        ]
+      }
+    ]
+  },
+  "motion": {
+    "breathing": {
+      "enabled": true,
+      "periodMs": 3200,
+      "scaleX": 0.015,
+      "scaleY": 0.025
+    },
+    "squashStretch": {
+      "enabled": true,
+      "durationMs": 260,
+      "intensity": 0.08
+    },
+    "idleIntervalMs": {
+      "min": 5000,
+      "max": 12000
+    }
+  },
+  "features": {
+    "transparentWindow": true,
+    "drag": true,
+    "tray": true,
+    "edgeSnap": true,
+    "reminders": true,
+    "interactions": true,
+    "relationship": true,
+    "filePocket": false,
+    "dashboard": true,
+    "typingReaction": false,
+    "autonomousMovement": false
+  },
+  "states": [
+    {
+      "id": "idle",
+      "triggers": [
+        "app:start",
+        "ambient:idle"
+      ],
+      "frames": [
+        "idle/idle-1.png",
+        "idle/idle-2.png",
+        "idle/idle-3.png",
+        "idle/idle-4.png"
+      ],
+      "frameDurationMs": 260,
+      "loop": true,
+      "priority": 10,
+      "interrupt": "resume",
+      "cooldownMs": 0,
+      "direction": "neutral",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.95
+      },
+      "mirrorSafe": true
+    },
+    {
+      "id": "blink",
+      "triggers": [
+        "ambient:blink"
+      ],
+      "frames": [
+        "blink/blink-1.png",
+        "blink/blink-2.png",
+        "blink/blink-3.png",
+        "blink/blink-4.png",
+        "blink/blink-5.png"
+      ],
+      "frameDurationMs": 80,
+      "loop": false,
+      "priority": 20,
+      "interrupt": "resume",
+      "cooldownMs": 3000,
+      "direction": "neutral",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.95
+      },
+      "mirrorSafe": true
+    },
+    {
+      "id": "tap",
+      "triggers": [
+        "pointer:tap"
+      ],
+      "frames": [
+        "tap/tap-1.png",
+        "tap/tap-2.png",
+        "tap/tap-3.png",
+        "tap/tap-4.png",
+        "tap/tap-5.png"
+      ],
+      "frameDurationMs": 110,
+      "loop": false,
+      "priority": 300,
+      "interrupt": "restart",
+      "cooldownMs": 1500,
+      "direction": "neutral",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.95
+      },
+      "mirrorSafe": true
+    },
+    {
+      "id": "random-idle",
+      "triggers": [
+        "ambient:random"
+      ],
+      "frames": [
+        "random/random-1.png",
+        "random/random-2.png",
+        "random/random-3.png",
+        "random/random-4.png",
+        "random/random-5.png"
+      ],
+      "frameDurationMs": 120,
+      "loop": false,
+      "priority": 15,
+      "interrupt": "resume",
+      "cooldownMs": 20000,
+      "direction": "neutral",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.95
+      },
+      "mirrorSafe": true
+    },
+    {
+      "id": "edge-snap",
+      "triggers": [
+        "window:edge-snap"
+      ],
+      "frames": [
+        "edge/edge-1.png",
+        "edge/edge-2.png",
+        "edge/edge-3.png",
+        "edge/edge-4.png",
+        "edge/edge-5.png"
+      ],
+      "frameDurationMs": 110,
+      "loop": false,
+      "priority": 200,
+      "interrupt": "resume",
+      "cooldownMs": 800,
+      "direction": "neutral",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.95
+      },
+      "mirrorSafe": true
+    },
+    {
+      "id": "reminder",
+      "triggers": [
+        "reminder:due"
+      ],
+      "frames": [
+        "reminder/reminder-1.png",
+        "reminder/reminder-2.png",
+        "reminder/reminder-3.png",
+        "reminder/reminder-4.png",
+        "reminder/reminder-5.png"
+      ],
+      "frameDurationMs": 120,
+      "loop": false,
+      "priority": 400,
+      "interrupt": "restart",
+      "cooldownMs": 1000,
+      "direction": "neutral",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.95
+      },
+      "mirrorSafe": true
+    },
+    {
+      "id": "pet-head",
+      "triggers": [
+        "interaction:pet-head"
+      ],
+      "frames": [
+        "pet-head/pet-head-1.png",
+        "pet-head/pet-head-2.png",
+        "pet-head/pet-head-3.png",
+        "pet-head/pet-head-4.png",
+        "pet-head/pet-head-5.png",
+        "pet-head/pet-head-6.png"
+      ],
+      "frameDurationMs": 140,
+      "loop": false,
+      "priority": 500,
+      "interrupt": "discard",
+      "cooldownMs": 2000,
+      "direction": "neutral",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.95
+      },
+      "mirrorSafe": true
+    },
+    {
+      "id": "feed-fish",
+      "triggers": [
+        "interaction:feed-fish"
+      ],
+      "frames": [
+        "feed-fish/feed-fish-1.png",
+        "feed-fish/feed-fish-2.png",
+        "feed-fish/feed-fish-3.png",
+        "feed-fish/feed-fish-4.png",
+        "feed-fish/feed-fish-5.png",
+        "feed-fish/feed-fish-6.png"
+      ],
+      "frameDurationMs": 140,
+      "loop": false,
+      "priority": 500,
+      "interrupt": "discard",
+      "cooldownMs": 3000,
+      "direction": "neutral",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.95
+      },
+      "mirrorSafe": true
+    },
+    {
+      "id": "play-teaser",
+      "triggers": [
+        "interaction:play-teaser"
+      ],
+      "frames": [
+        "play-teaser/play-teaser-1.png",
+        "play-teaser/play-teaser-2.png",
+        "play-teaser/play-teaser-3.png",
+        "play-teaser/play-teaser-4.png",
+        "play-teaser/play-teaser-5.png",
+        "play-teaser/play-teaser-6.png"
+      ],
+      "frameDurationMs": 140,
+      "loop": false,
+      "priority": 500,
+      "interrupt": "discard",
+      "cooldownMs": 3000,
+      "direction": "neutral",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.95
+      },
+      "mirrorSafe": true
+    }
+  ],
+  "storage": {
+    "userData": "app-user-data",
+    "filePocket": "documents-app-name"
+  },
+  "build": {
+    "windows": {
+      "arch": "x64",
+      "installer": "squirrel",
+      "portable": "zip"
+    },
+    "macos": {
+      "arch": "current",
+      "diskImage": "dmg",
+      "portable": "zip"
+    },
+    "timeoutMinutes": 20,
+    "unsigned": true
+  }
+}
