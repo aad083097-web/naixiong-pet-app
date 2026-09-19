@@ -5,6 +5,14 @@
   "description": "Secure cross-platform Electron desktop pet",
   "main": ".webpack/main",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aad083097-web/naixiong-pet-app.git"
+  },
+  "homepage": "https://github.com/aad083097-web/naixiong-pet-app#readme",
+  "bugs": {
+    "url": "https://github.com/aad083097-web/naixiong-pet-app/issues"
+  },
   "scripts": {
     "dev": "node tools/run-dev.mjs",
     "start": "node tools/run-dev.mjs",

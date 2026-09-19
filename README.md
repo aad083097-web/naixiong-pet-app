@@ -84,7 +84,7 @@ npm run test:dev-smoke # 开发态冒烟（隔离 userData + 自动关进程）
 **环境要求**：Node.js 22 ~ 24（Electron Forge 7 不支持 Node 25+）、macOS 或 Windows。
 
 ```bash
-git clone git@github.com:<your-name>/naixiong-pet-app.git
+git clone https://github.com/aad083097-web/naixiong-pet-app.git
 cd naixiong-pet-app
 npm install
 npm run dev
