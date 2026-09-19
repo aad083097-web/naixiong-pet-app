@@ -6,6 +6,20 @@
 
 ---
 
+## 📸 截图
+
+<p align="center">
+  <img src="docs/screenshots/desktop-pet.png" width="240" alt="奶凶小猫本体：白色圆润身体、黑色粗轮廓、大圆眼黑瞳淡黄眼白、粉色脸颊" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="docs/screenshots/context-menu.png" width="420" alt="右键桌宠弹出的菜单：摸摸头 / 喂小鱼干 / 逗猫棒 / 添加提醒 / 奶凶的小屋 / 开启鼠标穿透 / 隐藏桌宠" />
+</p>
+
+<p align="center">
+  <sub>左边是桌宠本体（透明窗口，直接浮在桌面上）；右边是右键菜单 —— 三种互动、提醒、小屋、鼠标穿透都在这里</sub>
+</p>
+
+---
+
 ## ✨ 特性一览
 
 ### 桌宠本体
@@ -125,6 +139,7 @@ src/
   assets/pet/              # 48 张动作帧 + core-ip.png（角色母图）
 tools/                     # 开发/构建/QA 工具链（见下表）
 tests/unit · tests/e2e     # 单元测试与 Playwright 端到端测试
+docs/screenshots/          # README 用的截图
 ```
 
 ### 工具链
